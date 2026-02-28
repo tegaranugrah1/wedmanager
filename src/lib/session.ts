@@ -30,7 +30,7 @@ export async function verifySession(token: string) {
       tenantId: string | null;
       tenantSlug: string | null;
     };
-  } catch (error) {
+  } catch {
     return null;
   }
 }

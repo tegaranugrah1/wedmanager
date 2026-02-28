@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Users, CalendarDays, DollarSign, Activity } from "lucide-react";
 
-export default function TenantDashboard({ params }: { params: { tenant_slug: string } }) {
+export default function TenantDashboard({ params: _params }: { params: { tenant_slug: string } }) {
   return (
     <div className="space-y-6">
       <div>

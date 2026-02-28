@@ -13,7 +13,7 @@ const signupSchema = z.object({
   tenantSlug: z.string().min(2).regex(/^[a-z0-9-]+$/),
 });
 
-export async function signupAction(prevState: any, formData: FormData) {
+export async function signupAction(prevState: unknown, formData: FormData) {
   const result = signupSchema.safeParse(Object.fromEntries(formData));
   
   if (!result.success) {
@@ -57,7 +57,7 @@ export async function signupAction(prevState: any, formData: FormData) {
     });
 
     await createSession(user.id, user.role, user.tenant_id, tenantSlug);
-  } catch (error) {
+  } catch {
     return { error: "Something went wrong" };
   }
 
@@ -69,7 +69,7 @@ const loginSchema = z.object({
   password: z.string(),
 });
 
-export async function loginAction(prevState: any, formData: FormData) {
+export async function loginAction(prevState: unknown, formData: FormData) {
   const result = loginSchema.safeParse(Object.fromEntries(formData));
   
   if (!result.success) {
