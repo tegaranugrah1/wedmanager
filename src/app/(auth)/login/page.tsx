@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function LoginPage() {
   return (
-    <div className="bg-[#fdfbfb] text-slate-900 antialiased min-h-screen flex flex-col font-sans">
+    <div className="bg-[#fdfbfb] text-slate-900 antialiased h-screen flex flex-col font-sans overflow-hidden">
       {/* Navbar */}
       <header className="w-full border-b border-[#f4f0f3] px-6 py-4 bg-white sticky top-0 z-50">
         <div className="max-w-7xl mx-auto flex items-center justify-between">

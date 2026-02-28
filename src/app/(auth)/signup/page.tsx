@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function SignupPage() {
   return (
-    <div className="bg-[#fdfbfb] text-slate-900 antialiased min-h-screen flex flex-col font-sans">
+    <div className="bg-[#fdfbfb] text-slate-900 antialiased h-screen flex flex-col font-sans overflow-hidden">
       {/* Navbar */}
       <header className="w-full border-b border-[#f4f0f3] px-6 py-4 bg-white sticky top-0 z-50">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -34,7 +34,7 @@ export default function SignupPage() {
           <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-[#d4af37]/10 via-transparent to-transparent"></div>
         </div>
 
-        <div className="w-full max-w-[1000px] flex flex-col md:flex-row bg-white rounded-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] overflow-hidden relative z-10 border border-slate-100">
+        <div className="w-full max-w-[1000px] h-[calc(100vh-8rem)] flex flex-col md:flex-row bg-white rounded-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] overflow-hidden relative z-10 border border-slate-100">
           {/* Left Side: Image/Branding */}
           <div className="hidden md:flex md:w-5/12 relative bg-slate-900">
             <div className="absolute inset-0 bg-cover bg-center opacity-80" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuCWoppBDP5SR1-6ooQdtQ01g8iH5bAB5rl4ekRu4xKXuW6XQzeIHuyJIP31dDAo1wQmHu5o_vYt56kQeqL3G3J1TMCwwmXOgwzRgwXFy_Q36qvznyNswFXlnkf5jsKYA31FgLa2S7XPdavehkvsuSSmZ5pNnEE73FIIp-vNMiV9g_HCAkEA-cVyVrlFCHPooS9NwiwUf76Kr2RG8F2IOPT7S0FA3w_YMYX3nvsfIEUD8Tm_JTs4D_bSIfdX25MXV0FfWbDT7vO8ZW1g')" }}></div>
@@ -50,8 +50,8 @@ export default function SignupPage() {
           </div>
 
           {/* Right Side: Signup Form */}
-          <div className="w-full md:w-7/12 p-8 md:p-12 lg:p-16 flex flex-col justify-center">
-            <div className="max-w-md mx-auto w-full">
+          <div className="w-full md:w-7/12 p-8 md:p-12 lg:p-16 flex flex-col overflow-y-auto">
+            <div className="max-w-md mx-auto w-full my-auto">
               <div className="mb-10 text-center md:text-left">
                 <h1 className="text-slate-900 text-4xl font-serif font-bold mb-3 tracking-tight">Begin Your Journey</h1>
                 <p className="text-slate-500 text-base">Create your WedManager account to start planning.</p>
