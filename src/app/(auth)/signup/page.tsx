@@ -37,7 +37,7 @@ export default function SignupPage() {
         <div className="w-full max-w-[1000px] flex flex-col md:flex-row bg-white rounded-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] overflow-hidden relative z-10 border border-slate-100">
           {/* Left Side: Image/Branding */}
           <div className="hidden md:flex md:w-5/12 relative bg-slate-900">
-            <div className="absolute inset-0 bg-cover bg-center opacity-80" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuC3J6yfpnwp4zsaxOyXmdq5o-VU4NUMsKgsilyLaExsGBKdjxN-Go7X5mOPHlVC9mugo4kLLhtqIUvBfZeVC79Lw0iJmYwyneYfCFvOuFDqmOlMs3PlV-JAmD-gr9y_8JGGbQtGUGXT_AWWH1dW6Am1mT-Hi88VSqCEg7v00JfxPMS81e07aNYrfVp8_ZXDPBGWwJiUtePoki6y3NisqsygHYoa96dOO6xug6jyh-Q72X0cTSbTDDaKAtkc3kUcL9LeRyofdkwfJFua')" }}></div>
+            <div className="absolute inset-0 bg-cover bg-center opacity-80" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuCWoppBDP5SR1-6ooQdtQ01g8iH5bAB5rl4ekRu4xKXuW6XQzeIHuyJIP31dDAo1wQmHu5o_vYt56kQeqL3G3J1TMCwwmXOgwzRgwXFy_Q36qvznyNswFXlnkf5jsKYA31FgLa2S7XPdavehkvsuSSmZ5pNnEE73FIIp-vNMiV9g_HCAkEA-cVyVrlFCHPooS9NwiwUf76Kr2RG8F2IOPT7S0FA3w_YMYX3nvsfIEUD8Tm_JTs4D_bSIfdX25MXV0FfWbDT7vO8ZW1g')" }}></div>
             <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-10">
               <div className="text-[#d4af37] mb-2">
                 <span className="material-symbols-outlined text-4xl">verified</span>
