@@ -1,0 +1,97 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// -----------------------------------------------------------------------------
+// Core Multitenancy Models
+// -----------------------------------------------------------------------------
+
+model Tenant {
+  id          String   @id @default(uuid())
+  name        String
+  slug        String   @unique // e.g. "sinta-wo"
+  is_active   Boolean  @default(true)
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+
+  users         User[]
+  subscriptions Subscription[]
+  
+  // Relations to operational data (for Phase 1 setup only)
+  // leads         Lead[]
+  // events        Event[]
+  // packages      Package[]
+  // vendors       Vendor[]
+  // landing_pages LandingPage[]
+
+  @@map("tenants")
+}
+
+// -----------------------------------------------------------------------------
+// Identity & Access Management
+// -----------------------------------------------------------------------------
+
+enum Role {
+  SUPERADMIN
+  TENANT_ADMIN
+  STAFF
+}
+
+model User {
+  id            String   @id @default(uuid())
+  email         String   @unique
+  password_hash String
+  role          Role     @default(STAFF)
+  created_at    DateTime @default(now())
+  updated_at    DateTime @updatedAt
+
+  // Multi-tenancy Isolation
+  // null only for SUPERADMIN
+  tenant_id     String?
+  tenant        Tenant?  @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
+
+  sessions      Session[]
+
+  @@map("users")
+}
+
+model Session {
+  id           String   @id @default(uuid())
+  user_id      String
+  expires_at   DateTime
+  
+  user         User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+// -----------------------------------------------------------------------------
+// Billing & Subscriptions
+// -----------------------------------------------------------------------------
+
+enum PlanTier {
+  BASIC
+  PRO
+  PREMIUM
+  ENTERPRISE
+}
+
+model Subscription {
+  id             String    @id @default(uuid())
+  tenant_id      String    @unique
+  plan_tier      PlanTier  @default(BASIC)
+  starts_at      DateTime  @default(now())
+  ends_at        DateTime?
+  is_active      Boolean   @default(true)
+
+  tenant         Tenant    @relation(fields: [tenant_id], references: [id], onDelete: Cascade)
+
+  @@map("subscriptions")
+}
